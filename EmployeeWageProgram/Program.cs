@@ -8,6 +8,7 @@ namespace EmployeeWageProgram
         public const int IS_PART_TIME = 2;
         public const int EMP_RATE_PER_HOUR = 20;
         public const int MAX_WORKING_DAYS = 20;
+        public const int MAX_HOURS = 100;
         static void Main(string[] args)
         {
             //Welcome Message
@@ -15,10 +16,10 @@ namespace EmployeeWageProgram
             Random random = new Random();
             //Variable
             int empHrs = 0;
-            int empWage = 0; 
+            int empTotalHour = 0; 
             int day = 0;
             int totalEmpWage = 0;
-            while (day < MAX_WORKING_DAYS)
+            while ((day < MAX_WORKING_DAYS) && (empTotalHour < MAX_HOURS))
             {
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
@@ -33,10 +34,10 @@ namespace EmployeeWageProgram
                         empHrs = 0;
                         break;
                 }
-                empWage = empHrs * EMP_RATE_PER_HOUR;
-                totalEmpWage = totalEmpWage + empWage;
+                empTotalHour += empHrs;
                 day++;
             }
+            totalEmpWage =  empTotalHour * EMP_RATE_PER_HOUR ;
             Console.WriteLine("Employee Monthly Wage: " + totalEmpWage);
         }
     }
