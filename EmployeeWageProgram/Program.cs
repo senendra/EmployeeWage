@@ -9,14 +9,12 @@ namespace EmployeeWageProgram
         public const int EMP_RATE_PER_HOUR = 20;
         public const int MAX_WORKING_DAYS = 20;
         public const int MAX_HOURS = 100;
-        static void Main(string[] args)
+        public static int computeEmployeeWage()
         {
-            //Welcome Message
-            Console.WriteLine("Welocome to Employee Wage Computation Program");
             Random random = new Random();
             //Variable
             int empHrs = 0;
-            int empTotalHour = 0; 
+            int empTotalHour = 0;
             int day = 0;
             int totalEmpWage = 0;
             while ((day < MAX_WORKING_DAYS) && (empTotalHour < MAX_HOURS))
@@ -37,8 +35,15 @@ namespace EmployeeWageProgram
                 empTotalHour += empHrs;
                 day++;
             }
-            totalEmpWage =  empTotalHour * EMP_RATE_PER_HOUR ;
+            totalEmpWage = empTotalHour * EMP_RATE_PER_HOUR;
             Console.WriteLine("Employee Monthly Wage: " + totalEmpWage);
+            return totalEmpWage;
+        } 
+        static void Main(string[] args)
+        {
+            //Welcome Message
+            Console.WriteLine("Welocome to Employee Wage Computation Program");
+            computeEmployeeWage();   
         }
     }
 }
