@@ -16,20 +16,20 @@ namespace EmployeeWageProgram
             int empHrs = 0;
             int empWage = 0;
             int empCheck = random.Next(0, 3);
-            if (empCheck == IS_FULL_TIME)
+            switch (empCheck)
             {
-                Console.WriteLine("Employee is Present Full Time");
-                empHrs = 8;
-            }
-            else if (empCheck == IS_PART_TIME)
-            {
-                Console.WriteLine("Employee is Present Part Time");
-                empHrs = 4;
-            }
-            else
-            {
-                Console.WriteLine("Employee is absent");
-                empHrs = 0;
+                case IS_FULL_TIME:
+                    Console.WriteLine("Employee is Present Full Time");
+                    empHrs = 8;
+                    break;
+                case IS_PART_TIME:
+                    Console.WriteLine("Employee is Present Part Time");
+                    empHrs = 4;
+                    break;
+                default:
+                    Console.WriteLine("Employee is absent");
+                    empHrs = 0;
+                    break;
             }
             empWage = empHrs * EMP_RATE_PER_HOUR;
             Console.WriteLine("Employee Wage: " + empWage);
